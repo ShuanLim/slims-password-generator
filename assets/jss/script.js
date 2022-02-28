@@ -93,8 +93,58 @@ function generatePassword() {
   while (specialInput !== "yes" && specialInput !== "no");
   // end of special characters prompt.
   
+  // ensure at least one character type was selected.
+  if (lowercaseInput === "no" && uppercaseInput === "no" && numericInput === "no" && specialInput === "no") {
+    return "Error: please select at least one character type.";
+  }
 
+  // if selected, then add all possible lowercase letters through ASCII code to the pool of possible characters.
+  if (lowercaseInput === "yes") {
+    for (let i = 97; i < 123; i++) {
+      charactersPool += String.fromCharCode(i);
+    }
+  }
 
+  // If selected, then add all possible uppercase letters through ASCII code to the pool of possible characters.
+  if (uppercaseInput === "yes") {
+    for (let i = 65; i < 91; i++) {
+      charactersPool += String.fromCharCode(i);
+    }
+  }
+
+  // If selected, then add all possible numbers to the pool of possible characters.
+  if (numericInput === "yes") {
+    for (let i = 0; i < 10; i++) {
+      charactersPool += i;
+    }
+  }
+
+  // If selected, then add common special characters through ASCII code to the pool of possible characters.
+  if (specialInput === "yes") {
+    for (let i = 32; i < 48; i++) {
+      charactersPool += String.fromCharCode(i);
+    }
+
+    for (let i = 58; i < 65; i++) {
+      charactersPool += String.fromCharCode(i);
+    }
+
+    for (let i = 91; i < 97; i++) {
+      charactersPool += String.fromCharCode(i);
+    }
+
+    for (let i = 123; i < 127; i++) {
+      charactersPool += String.fromCharCode(i);
+    }
+  }
+  // End of code for adding special characters to charactersPool
+
+  // Generate a password of the desired length using charactersPool
+  for (let i = 0; i < passwordLength; i++) {
+    password += charactersPool.charAt(Math.floor(Math.random() * charactersPool.length));
+  }
+
+  return password;
 }
 
 // Get references to the #generate element
