@@ -1,0 +1,23 @@
+# Slim's Password Generator
+
+## Purpose
+
+A web page to pseudorandomly generate a password.
+
+## Built With
+
+- HTML
+- CSS
+- JavaScript
+
+## Website
+
+https://shuanlim.github.io/slims-password-generator/
+
+## Screenshot
+
+![Screenshot](screenshot.png)
+
+## Contribution
+
+Made by [ShuanLim]
