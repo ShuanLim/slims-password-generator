@@ -2,7 +2,7 @@
 
 ## Purpose
 
-A web page to pseudorandomly generate a password.
+A web page to randomly generate a password.
 
 ## Built With
 
